@@ -1,5 +1,28 @@
 # TP : Mise en réseau Docker
 
+Le "TP : Mise en réseau Docker" est un travail noté en **groupe de deux**. Les membres du groupes sont :
+- SUPREME Chelson ;
+- GAIO Lucas. 
+
+Ce travail a pour objectif de faire **communiquer les deux conteneurs**. 
+
+
+## Sommaire
+- [Fonctionement](##Fonctionement)
+  - [Fichiers](###Fichiers)
+- [Consignes](##Consignes)
+  - [Etape I](###Etape-I)
+  - [Etape II](###Etape-II)
+  - [Etape III](###Etape-III)
+  - [Etape IV : rendu](###Etape-IV-:-rendu)
+
+## Fonctionement
+
+### Fichiers
+
+### Création 
+
+### Utilisation
 
 ## Consignes 
 
