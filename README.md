@@ -24,16 +24,17 @@ Ce travail a pour objectif de faire **communiquer les deux conteneurs**.
 
 1. Création du réseau : `docker network create --subnet=10.0.0.0/24 ynov-frontend-network`, `docker network create --subnet=10.0.1.0/24 ynov-backend-network`et `docker network create --subnet=10.0.2.0/24 ynov-gateway-network` ;
 2. Créer les conteneurs : 
-  - Conteneur front : `docker run -it --network ynov-frontend-network --name ynov-frontend --ip 10.0.0.10 -d nginx` ;
-  - Conteneur back : `docker pull bitnami/prestashop` puis `docker run -it --network ynov-backend-network --name ynov-backend --ip 10.0.1.10 -d bitnami/prestashop` ;
-  - Conteneur passerelle : `docker run -it --network ynov-gateway-network --name passerelle --ip 10.0.2.10 -d ubuntu` ;
+  - Conteneur front : `docker run -it --network ynov-frontend-network --name ynov-frontend --ip 10.0.0.10 -d -p 80:80 nginx` ;
+  - Conteneur back [Erreur, à corriger] : `docker run -it --network ynov-backend-network --name ynov-backend --ip 10.0.1.10 -d bitnami/prestashop` ;
+  - Conteneur passerelle : `docker run --privileged -it --network ynov-gateway-network --name passerelle --ip 10.0.2.10 -d ubuntu` ;
   - Vérifier que tout fonctionne correctement : `docker network inspect ynov-frontend-network`, `docker network inspect ynov-backend-network` et `docker network inspect ynov-gateway-network` ;
 3. Faire communiquer :
 4. Configurer la table de routage :
   - Aller sur le conteneur : `docker exec -it passerelle bash` ;
-  - Créer : `ip route add 10.0.1.0/24 via 10.0.2.0` et `ip route add 10.0.0.0/24 via 10.0.2.0` ;
+  - Installations : apt update, apt install -y iproute2 et apt update && apt install -y iputils-ping ;
+  - Créer : `ip route add 10.0.1.10 via 10.0.2.10` et `ip route add 10.0.0.10 via 10.0.2.10` ;
   - Vérifier : `ip route` ou `route -n`.
-9. Tout supprimer :
+9. Tout supprimer : 
   - Supprimer les conteneurs : `docker rm -f ynov-frontend ynov-backend passerelle`
   - Supprimer les réseaux : `docker network rm ynov-frontend-network ynov-backend-network ynov-gateway-network`
 
