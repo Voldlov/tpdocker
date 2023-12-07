@@ -12,7 +12,9 @@ Ce travail a pour objectif de faire **communiquer les deux conteneurs**.
 - [Utilisation](##Utilisation)
 - [Partie 1](##Partie-1)
 - [Partie 2](##Partie-2)
-- [Annexes](##Architecture)
+- [Architecture](##Architecture)
+- [Futur](## Futur)
+
 
 ## Fichiers
 
@@ -66,3 +68,7 @@ Connecter les conteneurs entre eux sur un même réseau.
 ## Architecture
 
 ![Schéma d'architecture](archi.png)
+
+## Futur
+
+Je vais convertir tout les lignes ci-dessus en un fichier docker compose, pour automatiser le tout.
