@@ -23,7 +23,8 @@ Ce travail a pour objectif de faire **communiquer les deux conteneurs**.
 Ce dossier contient plusieurs documents comme :
 - Archi.png : image de l'architecture à faire ;
 - README.md : document de procédure et d'explication du projet ;
-- Consignes.md : Document réunissant les consignes ;
+- ConsignesEN.md : Document réunissant les consignes en anglais ;
+- ConsignesFR.md : Document réunissant les consignes en français ;
 - Rendu.pdf : Document de rendu. 
 
 ### Création 
