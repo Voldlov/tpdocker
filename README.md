@@ -24,10 +24,11 @@ Ce travail a pour objectif de faire **communiquer les deux conteneurs**.
 
 #### Partie 1
 
-1. Créer les deux conteneurs : `docker run --name ynov-frontend -d -p 80:80 nginx` et `docker run -d --name ynov-backend -p 8080:80 -p 443:443 -e ALLOW_EMPTY_PASSWORD=yes bitnami/prestashop`
-2. Créer le réseau : `docker network create ynov-network`
-3. Connecter les conteneurs au réseau : `docker network connect ynov-network ynov-frontend` puis `docker network connect ynov-network ynov-backend`
-4. communiquer avec les noms : `curl http://ynov-backend:80`
+1. Créer les deux conteneurs : `docker run --name ynov-frontend -d -p 80:80 nginx` et `docker run -d --name ynov-backend -p 8080:80 -p 443:443 -e ALLOW_EMPTY_PASSWORD=yes bitnami/prestashop` ;
+2. Créer le réseau : `docker network create ynov-network` ;
+3. Connecter les conteneurs au réseau : `docker network connect ynov-network ynov-frontend` puis `docker network connect ynov-network ynov-backend` ;
+4. Installations, sur le conteneur : `apt update`, `apt install -y iproute2` et `apt update && apt install -y iputils-ping` ;
+5. communiquer avec les noms, sur le conteneur : `ping ynov-backend` ou `ping ynov-frontend`.
 
 #### Partie 2
 
