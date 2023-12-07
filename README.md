@@ -32,7 +32,7 @@ Ce dossier contient plusieurs documents comme :
 
 Connecter les conteneurs entre eux sur un même réseau.
 
-1. Créer les deux conteneurs : `docker run --name ynov-frontend -d -p 80:80 nginx` et `docker run -d --name ynov-backend -p 8080:80 -p 443:443 -e ALLOW_EMPTY_PASSWORD=yes bitnami/prestashop` ;
+1. Créer les deux conteneurs : `docker run --name ynov-frontend -d -p 8080:80 -p 443:443 -e ALLOW_EMPTY_PASSWORD=yes prestashop/prestashop` et `docker run -d -e MYSQL_ROOT_PASSWORD=my-secret-pw -p 3306:3306 mariadb` ;
 2. Créer le réseau : `docker network create ynov-network` ;
 3. Connecter les conteneurs au réseau : `docker network connect ynov-network ynov-frontend` puis `docker network connect ynov-network ynov-backend` ;
 4. Installations, sur le conteneur : `apt update`, `apt install -y iproute2` et `apt update && apt install -y iputils-ping` ;
