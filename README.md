@@ -51,8 +51,8 @@ Connecter les conteneurs entre eux sur un même réseau.
 
 1. Création du réseau : `docker network create --subnet=10.0.0.0/24 ynov-frontend-network`, `docker network create --subnet=10.0.1.0/24 ynov-backend-network` ;
 2. Créer les conteneurs :
-    - Frontend : `docker run -it --network ynov-frontend-network --name ynov-frontend --ip 10.0.0.10 -d -p 80:80 nginx` ;
-    - Backend : `docker run -it --network ynov-backend-network --name ynov-backend --ip 10.0.1.10 -d -p 8080:80 -p 443:443 -e ALLOW_EMPTY_PASSWORD=yes bitnami/prestashop` ;
+    - Frontend : `docker run --privileged -it --network ynov-frontend-network --name ynov-frontend --ip 10.0.0.10 -d -p 80:80 nginx` ;
+    - Backend : `docker run --privileged -it --network ynov-backend-network --name ynov-backend --ip 10.0.1.10 -d -p 8080:80 -p 443:443 -e ALLOW_EMPTY_PASSWORD=yes bitnami/prestashop` ;
     - Router : `docker run -d --privileged --name router --network ynov-frontend-network ubuntu sleep infinity` puis faire `docker network connect ynov-backend-network router`
 3. Vérifier le bon fonctionnement : `docker network inspect ynov-frontend-network`, `docker network inspect ynov-backend-network` ;
 4. Configurer le routeur : 
