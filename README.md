@@ -22,6 +22,14 @@ Ce travail a pour objectif de faire **communiquer les deux conteneurs**.
 
 ### Création 
 
+1. Création du réseau : `docker network create ynov-network` ;
+2. Créer les conteneurs : ;
+4. Lancer le conteneur sur le réseau à une adresse spécifique : le front `docker run --network ynov-network --name ynov-frontend-network --ip 10.0.0.0`, le back `docker run --network ynov-network --name ynov-backend-network --ip 10.0.1.0` et le routeur `docker run --network ynov-network --name passerelle --ip 10.0.2.0` ;
+5. Vérifier que tout fonctionne correctement : `docker network inspect ynov-network` ;
+
+
+`docker run --name <nom> <image>`
+
 ### Utilisation
 
 ## Consignes 
